@@ -30,13 +30,32 @@ const SCORE_FIELDS = [
   { key: 'creativity', label: 'Creativity and Originality' },
 ];
 
-if (!MONGODB_URI) {
-  throw new Error('Missing MONGODB_URI. Set it in your environment before starting server.');
-}
-
 let votesCollection;
 let commentsCollection;
 let ratingsCollection;
+
+let mongoConnectPromise;
+
+async function ensureMongoConnected() {
+  if (!MONGODB_URI) {
+    throw new Error('Missing MONGODB_URI. Set it in Vercel Environment Variables.');
+  }
+  if (votesCollection && commentsCollection && ratingsCollection) return;
+
+  if (!mongoConnectPromise) {
+    mongoConnectPromise = (async () => {
+      const client = new MongoClient(MONGODB_URI);
+      await client.connect();
+      const db = client.db(DB_NAME);
+      votesCollection = db.collection('votes');
+      commentsCollection = db.collection('comments');
+      ratingsCollection = db.collection('ratings');
+      await ensureSeedData();
+    })();
+  }
+
+  await mongoConnectPromise;
+}
 
 function normalizeVoteMap(votesMap = {}) {
   const normalized = {};
@@ -162,6 +181,19 @@ async function getAppData() {
 }
 
 app.use(express.json());
+
+app.use(async (req, res, next) => {
+  const url = req.originalUrl.split('?')[0];
+  if (!url.startsWith('/api')) return next();
+  try {
+    await ensureMongoConnected();
+    next();
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Database unavailable', message: String(err.message || err) });
+  }
+});
+
 app.use(express.static(path.join(__dirname)));
 
 app.get('/api/data', async (_req, res) => {
@@ -297,20 +329,17 @@ app.get('*', (_req, res) => {
 });
 
 async function start() {
-  const client = new MongoClient(MONGODB_URI);
-  await client.connect();
-  const db = client.db(DB_NAME);
-  votesCollection = db.collection('votes');
-  commentsCollection = db.collection('comments');
-  ratingsCollection = db.collection('ratings');
-  await ensureSeedData();
-
+  await ensureMongoConnected();
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
 }
 
-start().catch((err) => {
-  console.error('Server startup failed:', err);
-  process.exit(1);
-});
+module.exports = app;
+
+if (require.main === module) {
+  start().catch((err) => {
+    console.error('Server startup failed:', err);
+    process.exit(1);
+  });
+}
