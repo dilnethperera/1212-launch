@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>12:12 - Album Launch</title>
+  <link rel="icon" type="image/jpeg" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cinematic grain overlay -->
+  <div class="grain"></div>
+  <!-- Red scanlines -->
+  <div class="scanlines"></div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="logo-wrap">
+      <div class="logo-ring"></div>
+      <div class="logo-inner">
+        <img src="logo.png" alt="12:12 logo" class="logo-image" />
+      </div>
+      
+    </div>
+    <p class="hero-sub">A short film told through 12 songs.<br>One story. One night. One listen.</p>
+    <div class="red-rule"></div>
+    <p class="hero-desc">12:12 represents the intersection of twelve creative voices unified by a single vision. By weaving together a 12-track score with high-concept cinematography, we have crafted a visual album that serves as a deep, immersive exploration of human emotions. It is a curated journey through the complexities of the heart, designed for those who seek depth in every beat and resonance in every frame.</p>
+
+    <div class="hero-schedule">
+      <h3 class="hero-schedule-title">Event Schedule</h3>
+      <div class="hero-schedule-item">
+        <span class="hero-schedule-time">2:30 PM - 3:00 PM</span>
+        <span class="hero-schedule-text">Seating in the cinema hall</span>
+      </div>
+      <div class="hero-schedule-item">
+        <span class="hero-schedule-time">3:00 PM - 3:15 PM</span>
+        <span class="hero-schedule-text">Welcome speech</span>
+      </div>
+      <div class="hero-schedule-item">
+        <span class="hero-schedule-time">4:00 PM - 4:30 PM</span>
+        <span class="hero-schedule-text">Lecturers' speeches</span>
+      </div>
+      <ul class="hero-speakers-list">
+        <li>Mr. Ranga Dasanayaka</li>
+        <li>Maheshwara Medawatte</li>
+        <li>Mr. Chamitha Cooray</li>
+        <li>Mrs. Ransi Karunarathna</li>
+      </ul>
+      <div class="hero-schedule-item">
+        <span class="hero-schedule-time">4:30 PM - 4:40 PM</span>
+        <span class="hero-schedule-text">Thank-you speech</span>
+      </div>
+      <div class="hero-schedule-item">
+        <span class="hero-schedule-time">4:40 PM - 5:00 PM</span>
+        <span class="hero-schedule-text">Event closure</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- VOTE SECTION -->
+  <main>
+    <section class="vote-section">
+      <h2 class="section-title">RATE THE SONGS</h2>
+      <p class="section-sub">Give each track a 1–5 star rating. Submit once when you’re done.</p>
+
+      <div class="songs-grid" id="songsGrid"></div>
+
+      <div class="vote-form-wrap" id="voteFormWrap">
+        <div class="vote-form">
+          <div class="selected-song-display" id="selectedSongDisplay">
+            <span class="sel-label">YOUR RATINGS</span>
+            <span class="sel-title" id="selTitle">— rate all 12 tracks above —</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" id="labelMusicProduction">QUALITY OF MUSIC PRODUCTION (1–10)</label>
+            <input type="hidden" id="scoreMusicProduction" value="" />
+            <div class="score-picker" role="radiogroup" aria-labelledby="labelMusicProduction">
+              <button type="button" class="score-btn" data-score="1" aria-label="Score 1">1</button>
+              <button type="button" class="score-btn" data-score="2" aria-label="Score 2">2</button>
+              <button type="button" class="score-btn" data-score="3" aria-label="Score 3">3</button>
+              <button type="button" class="score-btn" data-score="4" aria-label="Score 4">4</button>
+              <button type="button" class="score-btn" data-score="5" aria-label="Score 5">5</button>
+              <button type="button" class="score-btn" data-score="6" aria-label="Score 6">6</button>
+              <button type="button" class="score-btn" data-score="7" aria-label="Score 7">7</button>
+              <button type="button" class="score-btn" data-score="8" aria-label="Score 8">8</button>
+              <button type="button" class="score-btn" data-score="9" aria-label="Score 9">9</button>
+              <button type="button" class="score-btn" data-score="10" aria-label="Score 10">10</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" id="labelStorytelling">QUALITY OF STORYTELLING (1–10)</label>
+            <input type="hidden" id="scoreStorytelling" value="" />
+            <div class="score-picker" role="radiogroup" aria-labelledby="labelStorytelling">
+              <button type="button" class="score-btn" data-score="1" aria-label="Score 1">1</button>
+              <button type="button" class="score-btn" data-score="2" aria-label="Score 2">2</button>
+              <button type="button" class="score-btn" data-score="3" aria-label="Score 3">3</button>
+              <button type="button" class="score-btn" data-score="4" aria-label="Score 4">4</button>
+              <button type="button" class="score-btn" data-score="5" aria-label="Score 5">5</button>
+              <button type="button" class="score-btn" data-score="6" aria-label="Score 6">6</button>
+              <button type="button" class="score-btn" data-score="7" aria-label="Score 7">7</button>
+              <button type="button" class="score-btn" data-score="8" aria-label="Score 8">8</button>
+              <button type="button" class="score-btn" data-score="9" aria-label="Score 9">9</button>
+              <button type="button" class="score-btn" data-score="10" aria-label="Score 10">10</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" id="labelEventPlanning">EVENT PLANNING AND ORGANIZATION (1–10)</label>
+            <input type="hidden" id="scoreEventPlanning" value="" />
+            <div class="score-picker" role="radiogroup" aria-labelledby="labelEventPlanning">
+              <button type="button" class="score-btn" data-score="1" aria-label="Score 1">1</button>
+              <button type="button" class="score-btn" data-score="2" aria-label="Score 2">2</button>
+              <button type="button" class="score-btn" data-score="3" aria-label="Score 3">3</button>
+              <button type="button" class="score-btn" data-score="4" aria-label="Score 4">4</button>
+              <button type="button" class="score-btn" data-score="5" aria-label="Score 5">5</button>
+              <button type="button" class="score-btn" data-score="6" aria-label="Score 6">6</button>
+              <button type="button" class="score-btn" data-score="7" aria-label="Score 7">7</button>
+              <button type="button" class="score-btn" data-score="8" aria-label="Score 8">8</button>
+              <button type="button" class="score-btn" data-score="9" aria-label="Score 9">9</button>
+              <button type="button" class="score-btn" data-score="10" aria-label="Score 10">10</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" id="labelCoordination">COORDINATION AMONG TEAM MEMBERS (1–10)</label>
+            <input type="hidden" id="scoreCoordination" value="" />
+            <div class="score-picker" role="radiogroup" aria-labelledby="labelCoordination">
+              <button type="button" class="score-btn" data-score="1" aria-label="Score 1">1</button>
+              <button type="button" class="score-btn" data-score="2" aria-label="Score 2">2</button>
+              <button type="button" class="score-btn" data-score="3" aria-label="Score 3">3</button>
+              <button type="button" class="score-btn" data-score="4" aria-label="Score 4">4</button>
+              <button type="button" class="score-btn" data-score="5" aria-label="Score 5">5</button>
+              <button type="button" class="score-btn" data-score="6" aria-label="Score 6">6</button>
+              <button type="button" class="score-btn" data-score="7" aria-label="Score 7">7</button>
+              <button type="button" class="score-btn" data-score="8" aria-label="Score 8">8</button>
+              <button type="button" class="score-btn" data-score="9" aria-label="Score 9">9</button>
+              <button type="button" class="score-btn" data-score="10" aria-label="Score 10">10</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" id="labelCreativity">CREATIVITY AND ORIGINALITY (1–10)</label>
+            <input type="hidden" id="scoreCreativity" value="" />
+            <div class="score-picker" role="radiogroup" aria-labelledby="labelCreativity">
+              <button type="button" class="score-btn" data-score="1" aria-label="Score 1">1</button>
+              <button type="button" class="score-btn" data-score="2" aria-label="Score 2">2</button>
+              <button type="button" class="score-btn" data-score="3" aria-label="Score 3">3</button>
+              <button type="button" class="score-btn" data-score="4" aria-label="Score 4">4</button>
+              <button type="button" class="score-btn" data-score="5" aria-label="Score 5">5</button>
+              <button type="button" class="score-btn" data-score="6" aria-label="Score 6">6</button>
+              <button type="button" class="score-btn" data-score="7" aria-label="Score 7">7</button>
+              <button type="button" class="score-btn" data-score="8" aria-label="Score 8">8</button>
+              <button type="button" class="score-btn" data-score="9" aria-label="Score 9">9</button>
+              <button type="button" class="score-btn" data-score="10" aria-label="Score 10">10</button>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">THOUGHTS ON THE PROJECT</label>
+            <textarea id="projectComment" class="form-input" placeholder="What did 12:12 as a film album mean to you?" rows="3" maxlength="300"></textarea>
+            <span class="char-count" id="projCharCount">0 / 300</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">THOUGHTS ON THE EVENT <span class="optional">(optional)</span></label>
+            <textarea id="voterName" class="form-input single" placeholder="How was the launch experience for you?" rows="3" maxlength="300"></textarea>
+            <span class="char-count" id="eventCharCount">0 / 300</span>
+          </div>
+
+          <button class="submit-btn" id="submitBtn" type="button">
+            <span class="btn-text">SUBMIT RATINGS</span>
+            <span class="btn-icon">→</span>
+          </button>
+
+          <p class="vote-note">* Each device may only submit once.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    
+    <section class="results-section">
+      <h2 class="section-title">LIVE RESULTS</h2>
+      <p class="section-sub">The pulse of the room.</p>
+      <div class="results-grid" id="resultsGrid"></div>
+    </section>
+  
+
+    <!-- COMMENTS WALL -->
+    <section class="comments-section">
+      <h2 class="section-title">THE WALL</h2>
+      <p class="section-sub">Voices from the audience.</p>
+
+      <div class="wall-topic">
+        <span class="wall-topic-badge">On the project & event</span>
+      </div>
+
+      <div class="scores-wall" id="scoresWall"></div>
+      <div class="comments-wall" id="commentsWall"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">12:12</div>
+    <p class="footer-copy">© 2025 12:12. All rights reserved. A film in sound.</p>
+  </footer>
+
+  <!-- THANK YOU MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-clock">12:12</div>
+      <h3 class="modal-title">VOTE RECEIVED</h3>
+      <p class="modal-msg" id="modalMsg">Thank you. Your voice is now part of the story.</p>
+      <button class="modal-close" id="modalClose">CLOSE</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
